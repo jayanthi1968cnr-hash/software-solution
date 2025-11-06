@@ -144,7 +144,7 @@
   }
 }
 
-/* 📱 MOBILE RESPONSIVE - COMPACT WITH VISIBLE MENU (max-width: 768px) */
+/* 📱 MOBILE RESPONSIVE - SINGLE LINE (max-width: 768px) */
 @media (max-width: 768px) {
   .main-header {
     padding: 8px 10px;
@@ -162,30 +162,39 @@
   .main-nav {
     display: flex !important;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
+    flex-wrap: nowrap; /* CRITICAL: Prevents wrapping to keep single line */
+    gap: 4px;
     padding: 0;
     width: 100%;
     justify-content: center;
     background: transparent;
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar */
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
   }
 
   .main-nav a {
-    font-size: 0.65rem;
-    padding: 5px 8px;
+    font-size: 0.62rem;
+    padding: 5px 7px;
     width: auto;
     text-align: center;
     border-bottom: none;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.08);
     white-space: nowrap;
     min-height: 28px;
     opacity: 1 !important;
     visibility: visible !important;
+    flex-shrink: 0; /* Prevents items from shrinking */
   }
 
   .main-nav a::after {
@@ -209,7 +218,7 @@
 
   .nav-btn {
     padding: 5px 10px;
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     width: auto;
     text-align: center;
     min-width: 70px;
@@ -228,18 +237,19 @@
   }
 
   .main-nav {
-    gap: 4px;
+    gap: 3px;
   }
 
   .main-nav a {
-    font-size: 0.6rem;
-    padding: 4px 7px;
+    font-size: 0.58rem;
+    padding: 4px 6px;
     min-height: 26px;
+    letter-spacing: 0.1px;
   }
 
   .nav-btn {
     padding: 4px 8px;
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     min-width: 65px;
   }
 }
@@ -255,18 +265,18 @@
   }
 
   .main-nav {
-    gap: 3px;
+    gap: 2px;
   }
 
   .main-nav a {
-    font-size: 0.55rem;
-    padding: 4px 6px;
+    font-size: 0.54rem;
+    padding: 4px 5px;
     min-height: 24px;
   }
 
   .nav-btn {
     padding: 4px 7px;
-    font-size: 0.55rem;
+    font-size: 0.54rem;
     min-width: 60px;
   }
 }
@@ -279,7 +289,7 @@
 
   .main-nav a {
     font-size: 0.5rem;
-    padding: 3px 5px;
+    padding: 3px 4px;
   }
 
   .nav-btn {
@@ -311,11 +321,11 @@
   }
 
   .main-nav {
-    gap: 4px;
+    gap: 3px;
   }
 
   .main-nav a {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     padding: 4px 6px;
   }
 
@@ -325,7 +335,7 @@
 
   .nav-btn {
     padding: 4px 8px;
-    font-size: 0.6rem;
+    font-size: 0.58rem;
   }
 }
 
@@ -339,7 +349,6 @@
     display: flex !important;
     height: auto !important;
     max-height: none !important;
-    overflow: visible !important;
   }
   
   .main-nav a {
