@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Solution</title>
+
+    <!-- ✨ Google Fonts (Kzero Style) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 🖤 Base Style -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000; /* Pure black background */
+        color: #fff;
+        font-family: "IBM Plex Mono", monospace;
+        overflow-x: hidden;
+      }
+
+      /* ✨ Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ff4f2c;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #111;
+      }
+
+      /* 🪄 Reset default spacing */
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Optional: Smooth transitions */
+      a,
+      button {
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- 🚀 Main Entry -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

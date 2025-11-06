@@ -1,0 +1,181 @@
+/* 🌍 GLOBAL */
+.careers-page {
+  background-color: #0f0f0f;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* 💼 HERO SECTION */
+.careers-hero {
+  width: 100vw;
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1e1e1e, #242424);
+}
+
+.careers-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.careers-hero p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* 📢 JOB OPENINGS */
+.careers-openings {
+  text-align: center;
+  padding: 80px 20px;
+  width: 100%;
+}
+
+.careers-openings h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.job-card {
+  background: #1a1a1a;
+  padding: 30px 20px;
+  border-radius: 10px;
+  transition: 0.25s ease;
+}
+
+.job-card:hover {
+  background: #222;
+  transform: translateY(-5px);
+}
+
+.job-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.job-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #38bdf8;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.job-card button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* 🧠 CULTURE */
+.careers-culture {
+  text-align: center;
+  padding: 80px 20px;
+  background: #1e1e1e;
+  width: 100%;
+}
+
+.careers-culture h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.culture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.culture-card {
+  background: #1a1a1a;
+  padding: 30px 20px;
+  border-radius: 10px;
+  transition: 0.25s ease;
+}
+
+.culture-card:hover {
+  background: #222;
+  transform: translateY(-5px);
+}
+
+.culture-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+/* 📩 CTA */
+.careers-cta {
+  text-align: center;
+  padding: 100px 20px;
+  width: 100%;
+}
+
+.careers-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.careers-cta p {
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.careers-cta button {
+  padding: 14px 30px;
+  background-color: #38bdf8;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.careers-cta button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .careers-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .careers-hero p {
+    font-size: 1rem;
+  }
+
+  .job-grid,
+  .culture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .careers-cta h2 {
+    font-size: 1.8rem;
+  }
+}
