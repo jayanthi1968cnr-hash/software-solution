@@ -1,0 +1,154 @@
+/* 🧭 HEADER WRAPPER */
+.main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #000; /* clean solid black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ✨ BRAND LOGO */
+.logo {
+  font-family: "Space Mono", monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #ff4f2c;
+}
+
+/* 🧭 NAVIGATION LINKS */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  width: 100%;
+  max-width: 100%;
+  padding: 5px 0;
+}
+
+.main-nav a {
+  color: #e5e5e5; /* soft white */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ✨ Fire accent underline on hover */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #ff8a00; /* subtle fire accent */
+}
+
+/* 🔸 CTA Buttons (optional) */
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.nav-btn {
+  font-family: "Space Mono", monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.login-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.login-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.cta-btn {
+  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  color: #fff;
+  border: none;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(90deg, #ff5c1a, #ffaa33);
+  transform: translateY(-2px);
+}
+
+/* 🧭 ACTIVE LINK STYLE */
+.main-nav a.active {
+  font-weight: 600;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .main-nav a {
+    font-size: 1.1rem;
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,371 @@
+/* 🌑 GLOBAL */
+.home-page {
+  background-color: #000;
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+section {
+  width: 100%;
+}
+
+/* 🏠 HERO SECTION */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  margin: 0;
+  overflow: hidden;
+  padding: 2rem 0 10rem;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 850px;
+  width: 100%;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.hero-subtitle {
+  color: #ff4f2c;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-family: "Space Mono", monospace;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.hero-content p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  opacity: 0.85;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 🪄 BUTTONS */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  border: none;
+  font-family: "Space Mono", monospace;
+  letter-spacing: 1px;
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%,
+    0 8px
+  );
+  white-space: nowrap;
+}
+
+.primary-btn {
+  background-color: #ff4f2c;
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background-color: #ff683e;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.secondary-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* 🌊 NEON WAVE VIDEO */
+.wave-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 120%;
+  object-fit: cover;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  animation: waveMove 30s linear infinite;
+}
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 🌟 WHY CHOOSE US */
+.why-section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.why-section h2 {
+  font-family: "Space Mono", monospace;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 3rem;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 79, 44, 0.4);
+  box-shadow: 0 0 20px rgba(255, 79, 44, 0.15);
+}
+
+.why-card h3 {
+  font-family: "Space Mono", monospace;
+  margin-top: 1rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.why-card p {
+  font-size: clamp(0.8rem, 2vw, 0.85rem);
+  opacity: 0.8;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+.why-icon {
+  color: #ff4f2c;
+}
+
+/* 🖼️ FLOATING ICON SECTION */
+.icon-section {
+  height: 150vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  padding-top: 20vh;
+}
+
+.floating-icon {
+  position: sticky;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(3);
+  transform-origin: center center;
+  width: 400px;
+  max-width: 80vw;
+  
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+  
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+}
+
+/* 🚀 SHOWCASE SECTION */
+.showcase-section {
+  min-height: 100vh;
+  padding: 5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+}
+
+.showcase-content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.showcase-content h2 {
+  font-family: "Space Mono", monospace;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+.showcase-content p {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* 🧭 CTA SECTION */
+.cta-section {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 700px;
+  width: 100%;
+}
+
+.cta-content h2 {
+  font-family: "Space Mono", monospace;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-content p {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1rem 0 5rem;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .hero-buttons,
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+
+  .why-section {
+    padding: 3rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .why-card {
+    padding: 1.5rem;
+  }
+
+  .icon-section {
+    height: 120vh;
+    padding-top: 10vh;
+  }
+
+  .floating-icon {
+    width: 250px;
+    transform: translate(-50%, -50%) scale(2);
+  }
+
+  .showcase-section,
+  .cta-section {
+    min-height: 80vh;
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-subtitle {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .why-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .floating-icon {
+    width: 200px;
+  }
+
+  .icon-section {
+    height: 100vh;
+  }
+}
+
+/* Prevent horizontal scroll on all screen sizes */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}

@@ -1,0 +1,260 @@
+/* 🌍 GLOBAL */
+.about-page {
+  background-color: #0f0f0f;
+  color: #fff;
+  font-family: "IBM Plex Mono", monospace;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* 🏢 HERO SECTION */
+.about-hero {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  gap: 2rem;
+}
+
+.about-hero-text {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-subtitle {
+  color: #ff4f2c;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.about-hero-text h1 {
+  font-family: "Space Mono", monospace;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.about-hero-text p {
+  opacity: 0.85;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.about-hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-hero-image img {
+  max-width: 400px;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* ✨ Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🧭 Mission Section */
+.mission-section {
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.mission-section h2 {
+  font-family: "Space Mono", monospace;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* 👨‍💻 Team Section */
+.team-section {
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 79, 44, 0.4);
+  box-shadow: 0 0 20px rgba(255, 79, 44, 0.15);
+}
+
+.team-card img {
+  width: 180px;             /* 🔥 Increased size */
+  height: 180px;
+  border-radius: 12px;      /* tile shape */
+  object-fit: cover;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Highlight Daniel (first card) */
+.team-card:first-child {
+  background: rgba(30, 27, 27, 0.08);
+  border: 1px solid rgba(50, 45, 44, 0.3);
+  box-shadow: 0 0 20px rgba(255, 79, 44, 0.15);
+}
+
+.team-card h3 {
+  font-family: "Space Mono", monospace;
+  margin-top: 0.5rem;
+}
+
+.team-card p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* 💡 Values Section */
+.values-section {
+  text-align: center;
+  padding: 6rem 0;
+  background: linear-gradient(180deg, #0f0f0f 0%, #141414 100%);
+}
+
+.values-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.value-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 79, 44, 0.4);
+  box-shadow: 0 0 20px rgba(255, 79, 44, 0.15);
+}
+
+.value-card h3 {
+  font-family: "Space Mono", monospace;
+  margin-bottom: 0.5rem;
+}
+
+.value-card p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* 📩 CTA Section */
+.about-cta {
+  text-align: center;
+  padding: 6rem 1rem;
+  background: #000;
+}
+
+.about-cta h2 {
+  font-family: "Space Mono", monospace;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-cta p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.about-cta .primary-btn {
+  padding: 14px 32px;
+  background-color: #ff4f2c;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  letter-spacing: 1px;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  transition: 0.3s ease;
+}
+
+.about-cta .primary-btn:hover {
+  background-color: #ff683e;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .about-hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .about-hero-image {
+    margin-top: 2rem;
+  }
+
+  .team-grid, .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .about-cta h2 {
+    font-size: 2rem;
+  }
+}
