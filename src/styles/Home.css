@@ -193,6 +193,7 @@ section {
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: 5rem; /* ✅ ADDED a sensible margin for spacing */
 }
 
 .floating-icon {
@@ -209,7 +210,7 @@ section {
   pointer-events: none;
   
   transition: transform 2.25s ease-out, opacity 2.25s ease-out;
-  margin-top: 80rem;
+  margin-top: 0; /* ✅ CHANGED from 80rem to 0. This is the main fix. */
 }
 
 /* 🚀 SHOWCASE SECTION */
@@ -318,13 +319,16 @@ section {
     font-size: 1.8rem;
   }
 
+HTML
   .icon-section {
     height: 50vh;
-    margin-top: 20rem; /* Drastically reduce the large margin */
+    margin-top: 5rem; /* ✅ CHANGED from 20rem to a sensible margin */
   }
 
   .floating-icon {
-    width: 200px;
+    /* ✅ CHANGED from 'width' to 'transform' for a smoother effect */
+    transform: translate(-50%, -50%) scale(3);
+    width: 600px; /* Keep original width so scale works */
     top: 50%;
   }
 
@@ -402,11 +406,13 @@ section {
 
   .icon-section {
     height: 40vh;
-    margin-top: 10rem;
+    margin-top: 4rem; /* ✅ CHANGED from 10rem to a sensible margin */
   }
 
   .floating-icon {
-    width: 150px;
+    /* ✅ CHANGED from 'width' to 'transform' */
+    transform: translate(-50%, -50%) scale(2);
+    width: 600px; /* Keep original width so scale works */
   }
 
   .showcase-section,
