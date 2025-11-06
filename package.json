@@ -14,9 +14,13 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+<<<<<<< HEAD
     "firebase": "^12.5.0",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
+=======
+    "framer-motion": "^12.23.24",
+>>>>>>> 4c18b183bcc8d9d8769ca80a05676f8b85f8cf0f
     "nodemailer": "^7.0.10",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
