@@ -2,10 +2,27 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../styles/About.css";
 
-// 🖼️ danielImg import removed as it's no longer used
+// 🖼️ Only Daniel's image is imported from src/assets
+import danielImg from "../assets/team/daniel.jpg";
 
 export default function About() {
-  // 👨‍💻 teamMembers array removed
+  const teamMembers = [
+    {
+      name: "Daniel",
+      role: "Co-Founder",
+      img: danielImg,
+    },
+    {
+      name: "Richerd",
+      role: "Opreations Lead",
+      img: `https://via.placeholder.com/100?text=J`, // ✅ placeholder instead of missing file
+    },
+    {
+      name: "Michael",
+      role: "Product Designer",
+      img: `https://via.placeholder.com/100?text=M`, // ✅ placeholder instead of missing file
+    },
+  ];
 
   return (
     <div className="about-page">
@@ -55,7 +72,39 @@ export default function About() {
         </p>
       </motion.section>
 
-      {/* 👨‍💻 TEAM SECTION (REMOVED) */}
+      {/* 👨‍💻 TEAM SECTION */}
+      <motion.section
+        className="team-section container"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2>Meet Our Team</h2>
+        <div className="team-grid">
+          {teamMembers.map((member, i) => (
+            <motion.div
+              className="team-card"
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15, duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src={member.img}
+                alt={member.name}
+                onError={(e) => {
+                  e.target.src = `https://via.placeholder.com/100?text=${member.name[0]}`;
+                }}
+              />
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
       {/* 💡 VALUES SECTION */}
       <motion.section
@@ -125,4 +174,5 @@ export default function About() {
       </motion.section>
     </div>
   );
-}0f
+}
+

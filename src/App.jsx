@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
-<<<<<<< HEAD
+// This combines both versions of the import
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-=======
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
->>>>>>> 4c18b183bcc8d9d8769ca80a05676f8b85f8cf0f
 import Lenis from "@studio-freight/lenis"; // 🧭 Smooth scroll engine
 
 // 🧱 Layout Components
@@ -17,7 +14,7 @@ import Services from "./pages/Services";
 import Products from "./pages/Products";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
-<<<<<<< HEAD
+// This includes your new pages
 import Login from "./pages/LoginPage";
 import Register from "./pages/RegisterPage";
 import UserDashboard from "./pages/UserDashboard"; // ✅ Import UserDashboard
@@ -27,6 +24,7 @@ import "./styles/App.css";
 /* 🌀 Global Smooth Scroll (Lenis) - Only on non-auth pages */
 function SmoothScroll() {
   const location = useLocation();
+  // This logic is from your new version
   const isAuthPage = ["/login", "/register", "/dashboard"].includes(location.pathname);
 
   useEffect(() => {
@@ -34,17 +32,7 @@ function SmoothScroll() {
     if (isAuthPage) return;
 
     const lenis = new Lenis({
-      duration: 0.1,
-=======
-
-import "./styles/App.css";
-
-/* 🌀 Global Smooth Scroll (Lenis) */
-function SmoothScroll() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: .1,
->>>>>>> 4c18b183bcc8d9d8769ca80a05676f8b85f8cf0f
+      duration: 0.1, // Corrected duration format
       smooth: true,
       direction: "vertical",
       gestureDirection: "vertical",
@@ -60,24 +48,21 @@ function SmoothScroll() {
     requestAnimationFrame(raf);
 
     return () => lenis.destroy();
-<<<<<<< HEAD
-  }, [isAuthPage]);
-=======
-  }, []);
->>>>>>> 4c18b183bcc8d9d8769ca80a05676f8b85f8cf0f
+  }, [isAuthPage]); // This dependency array is correct
 
   return null;
 }
 
+// This wrapper structure is from your new version
 function App() {
   return (
     <Router>
-<<<<<<< HEAD
       <AppContent />
     </Router>
   );
 }
 
+// This component correctly handles conditional layout
 function AppContent() {
   const location = useLocation();
   const isAuthPage = ["/login", "/register", "/dashboard"].includes(location.pathname);
@@ -89,13 +74,6 @@ function AppContent() {
 
       {/* 🧭 Conditional Header - Hide on auth pages */}
       {!isAuthPage && <Header />}
-=======
-      {/* ✨ Lenis Scroll Wrapper */}
-      <SmoothScroll />
-
-      {/* 🧭 Global Header */}
-      <Header />
->>>>>>> 4c18b183bcc8d9d8769ca80a05676f8b85f8cf0f
 
       {/* 🌍 Page Content */}
       <main>
@@ -106,7 +84,6 @@ function AppContent() {
           <Route path="/products" element={<Products />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
-<<<<<<< HEAD
           
           {/* Auth Pages - No Header/Footer */}
           <Route path="/login" element={<Login />} />
@@ -122,15 +99,3 @@ function AppContent() {
 }
 
 export default App;
-=======
-        </Routes>
-      </main>
-
-      {/* 🦶 Global Footer */}
-      <Footer />
-    </Router>
-  );
-}
-
-export default App;
->>>>>>> 4c18b183bcc8d9d8769ca80a05676f8b85f8cf0f
