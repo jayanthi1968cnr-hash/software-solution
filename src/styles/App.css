@@ -144,7 +144,7 @@
   }
 }
 
-/* 📱 MOBILE RESPONSIVE - NO LOGO (max-width: 768px) */
+/* 📱 MOBILE RESPONSIVE - NO LOGO, NO GET STARTED (max-width: 768px) */
 @media (max-width: 768px) {
   .main-header {
     padding: 6px 8px;
@@ -226,6 +226,13 @@
     width: auto;
     text-align: center;
     min-width: 70px;
+  }
+
+  /* HIDE GET STARTED BUTTON ON MOBILE */
+  .cta-btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
 
