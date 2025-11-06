@@ -8,11 +8,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   padding: 12px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  /* This transition helps if the menu pushes content down */
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Add a max-width for very large screens */
 }
 
 /* ✨ BRAND LOGO */
@@ -23,10 +32,14 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #ffffff;
-  margin-bottom: 8px;
   text-decoration: none;
   transition: color 0.3s ease;
-  text-align: center;
+  z-index: 1002; /* Keep logo above menu */
+}
+
+.logo a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .logo:hover {
@@ -37,11 +50,8 @@
 .main-nav {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 25px;
-  width: 100%;
-  max-width: 100%;
-  padding: 5px 0;
+  margin: 0 auto; /* This centers the nav between logo and CTAs */
 }
 
 .main-nav a {
@@ -84,9 +94,6 @@
 .nav-actions {
   display: flex;
   gap: 12px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .nav-btn {
@@ -99,6 +106,9 @@
   clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
   border: none;
   outline: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .login-btn {
@@ -123,238 +133,106 @@
   transform: translateY(-2px);
 }
 
-/* 🧭 ACTIVE LINK STYLE */
-.main-nav a.active {
-  font-weight: 600;
+/* 🍔 MOBILE MENU TOGGLE */
+.mobile-menu-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.2rem; /* Large, easy-to-tap icon */
+  cursor: pointer;
+  z-index: 1002; /* Keep toggle above menu */
+  padding: 0;
+  line-height: 1;
 }
 
-/* 📱 TABLET RESPONSIVE (768px - 1024px) */
-@media (max-width: 1024px) {
-  .main-header {
-    padding: 10px 15px;
-  }
-
-  .main-nav {
-    gap: 18px;
-  }
-
-  .main-nav a {
-    font-size: 0.95rem;
-    padding: 6px 10px;
-  }
-}
-
-/* 📱 MOBILE RESPONSIVE - ALL ITEMS VISIBLE (max-width: 768px) */
+/* 📱 MOBILE RESPONSIVE (max-width: 768px) */
 @media (max-width: 768px) {
   .main-header {
-    padding: 8px 6px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* HIDE LOGO ON MOBILE */
-  .logo {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-  }
-
-  .main-nav {
-    display: flex !important;
-    flex-direction: row;
+    /* Allow header to wrap if menu is open */
     flex-wrap: wrap;
-    gap: 5px;
-    padding: 0;
+  }
+
+  .nav-container {
+    flex-wrap: nowrap; /* Keep the top bar (logo/toggle) on one line */
     width: 100%;
-    justify-content: center;
-    background: transparent;
-    margin-top: 0;
   }
 
-  .main-nav a {
-    font-size: 0.7rem;
-    padding: 7px 9px;
-    width: auto;
-    text-align: center;
-    border-bottom: none;
-    display: inline-flex !important;
+  .mobile-menu-toggle {
+    display: block; /* Show the hamburger icon */
+  }
+
+  .logo {
+    font-size: 1.1rem; /* Slightly smaller logo */
+  }
+
+  /* Hide the desktop nav and CTAs */
+  .main-nav,
+  .nav-actions {
+    display: none;
+    flex-direction: column;
+    width: 100%;
     align-items: center;
-    justify-content: center;
-    letter-spacing: 0.4px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.08);
-    white-space: nowrap;
-    min-height: 32px;
-    opacity: 1 !important;
-    visibility: visible !important;
-    flex-shrink: 0;
-    font-weight: 500;
   }
 
-  .main-nav a::after {
+  /* Styles for the OPEN menu */
+  .main-header.mobile-menu-open {
+    /* Optional: make it full-height for an overlay effect */
+    /* position: fixed; 
+       height: 100vh; 
+       align-items: flex-start; */
+  }
+
+  .main-header.mobile-menu-open .main-nav {
+    display: flex;
+    order: 2; /* Show nav links second */
+    padding: 20px 0;
+    gap: 0;
+  }
+
+  .main-header.mobile-menu-open .main-nav a {
+    font-size: 1.4rem;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-header.mobile-menu-open .main-nav a::after {
+    /* Optional: hide or keep the underline */
     display: none;
   }
 
-  .main-nav a:hover,
-  .main-nav a.active {
-    background: rgba(255, 138, 0, 0.2);
-    color: #ff8a00;
-  }
-
-  .nav-actions {
-    margin-top: 8px;
-    gap: 6px;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;
+  .main-header.mobile-menu-open .nav-actions {
     display: flex;
+    order: 3; /* Show CTAs last */
+    gap: 15px;
+    padding-bottom: 20px;
   }
 
-  .nav-btn {
-    padding: 7px 12px;
-    font-size: 0.7rem;
-    width: auto;
-    text-align: center;
-    min-width: 75px;
-  }
-
-  /* HIDE GET STARTED BUTTON ON MOBILE */
-  .cta-btn {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
+  .main-header.mobile-menu-open .nav-actions .nav-btn {
+    width: 80%;
+    max-width: 250px;
+    padding: 12px 20px;
+    font-size: 1rem;
   }
 }
 
-/* 📱 SMALL MOBILE (max-width: 480px) */
+/* 📱 SMALLER MOBILE (max-width: 480px) */
 @media (max-width: 480px) {
   .main-header {
-    padding: 6px 5px;
-  }
-
-  .main-nav {
-    gap: 4px;
-  }
-
-  .main-nav a {
-    font-size: 0.65rem;
-    padding: 6px 8px;
-    min-height: 30px;
-    letter-spacing: 0.3px;
-  }
-
-  .nav-btn {
-    padding: 6px 10px;
-    font-size: 0.65rem;
-    min-width: 70px;
-  }
-}
-
-/* 📱 EXTRA SMALL MOBILE (max-width: 375px) */
-@media (max-width: 375px) {
-  .main-header {
-    padding: 6px 4px;
-  }
-
-  .main-nav {
-    gap: 3px;
-  }
-
-  .main-nav a {
-    font-size: 0.6rem;
-    padding: 5px 7px;
-    min-height: 28px;
-    letter-spacing: 0.2px;
-  }
-
-  .nav-btn {
-    padding: 5px 9px;
-    font-size: 0.6rem;
-    min-width: 65px;
-  }
-}
-
-/* 📱 VERY SMALL SCREENS (max-width: 360px) */
-@media (max-width: 360px) {
-  .main-nav {
-    gap: 2px;
-  }
-
-  .main-nav a {
-    font-size: 0.58rem;
-    padding: 5px 6px;
-    letter-spacing: 0.15px;
-  }
-
-  .nav-btn {
-    font-size: 0.58rem;
-    padding: 5px 8px;
-  }
-}
-
-/* 🎯 TOUCH OPTIMIZATION FOR MOBILE */
-@media (hover: none) and (pointer: coarse) and (max-width: 768px) {
-  .main-nav a {
-    min-height: 34px;
-  }
-
-  .nav-btn {
-    min-height: 34px;
-  }
-}
-
-/* 🌐 LANDSCAPE MOBILE */
-@media (max-width: 768px) and (orientation: landscape) {
-  .main-header {
-    padding: 5px 6px;
-  }
-
-  .main-nav {
-    gap: 4px;
-  }
-
-  .main-nav a {
-    font-size: 0.65rem;
-    padding: 5px 7px;
-  }
-
-  .nav-actions {
-    margin-top: 5px;
-  }
-
-  .nav-btn {
-    padding: 5px 8px;
-    font-size: 0.65rem;
-  }
-}
-
-/* 💡 CRITICAL VISIBILITY FIX */
-@media (max-width: 768px) {
-  .main-nav {
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: relative !important;
-    transform: none !important;
-    display: flex !important;
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
+    padding: 10px 10px;
   }
   
-  .main-nav a {
-    pointer-events: auto !important;
-    z-index: 1 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: inline-flex !important;
+  .logo {
+    font-size: 1rem;
   }
 
-  .nav-actions {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: flex !important;
+  .mobile-menu-toggle {
+    font-size: 2rem;
+  }
+
+  .main-header.mobile-menu-open .main-nav a {
+    font-size: 1.2rem;
+    padding: 12px 0;
   }
 }
