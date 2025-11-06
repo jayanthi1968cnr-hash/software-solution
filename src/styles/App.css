@@ -135,34 +135,35 @@
   }
 
   .main-nav {
-    gap: 15px;
+    gap: 18px;
   }
 
   .main-nav a {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding: 6px 10px;
   }
 }
 
-/* 📱 MOBILE RESPONSIVE - COMPACT VERSION (max-width: 768px) */
+/* 📱 MOBILE RESPONSIVE - BEAUTIFUL HORIZONTAL (max-width: 768px) */
 @media (max-width: 768px) {
   .main-header {
-    padding: 8px 10px;
+    padding: 10px 12px;
     min-height: auto;
   }
 
   .logo {
-    font-size: 0.85rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
     display: block;
     width: 100%;
+    letter-spacing: 0.8px;
   }
 
   .main-nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px;
     padding: 0;
     width: 100%;
     justify-content: center;
@@ -170,16 +171,18 @@
   }
 
   .main-nav a {
-    font-size: 0.7rem;
-    padding: 6px 8px;
+    font-size: 0.75rem;
+    padding: 8px 10px;
     width: auto;
     text-align: center;
     border-bottom: none;
-    display: inline-block;
-    letter-spacing: 0.3px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.03);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    min-height: 34px;
   }
 
   .main-nav a::after {
@@ -188,131 +191,148 @@
 
   .main-nav a:hover,
   .main-nav a.active {
-    background: rgba(255, 138, 0, 0.15);
+    background: linear-gradient(90deg, rgba(255, 69, 0, 0.2), rgba(255, 138, 0, 0.2));
     color: #ff8a00;
-    border-color: rgba(255, 138, 0, 0.3);
+    box-shadow: 0 0 8px rgba(255, 138, 0, 0.3);
   }
 
   .nav-actions {
-    margin-top: 8px;
-    gap: 6px;
+    margin-top: 10px;
+    gap: 8px;
     width: 100%;
     flex-direction: row;
+    justify-content: center;
   }
 
   .nav-btn {
-    padding: 8px 12px;
-    font-size: 0.7rem;
+    padding: 8px 14px;
+    font-size: 0.75rem;
     width: auto;
     text-align: center;
-    flex: 1;
+    flex: 0 1 auto;
+    min-width: 100px;
   }
 }
 
-/* 📱 SMALL MOBILE - EXTRA COMPACT (max-width: 480px) */
+/* 📱 SMALL MOBILE - REFINED (max-width: 480px) */
 @media (max-width: 480px) {
   .main-header {
-    padding: 6px 8px;
+    padding: 8px 10px;
   }
 
   .logo {
-    font-size: 0.8rem;
-    margin-bottom: 6px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
   }
 
   .main-nav {
-    gap: 4px;
+    gap: 6px;
   }
 
   .main-nav a {
-    font-size: 0.65rem;
-    padding: 5px 6px;
-    letter-spacing: 0.2px;
+    font-size: 0.7rem;
+    padding: 7px 9px;
+    letter-spacing: 0.3px;
+    min-height: 32px;
   }
 
   .nav-btn {
-    padding: 7px 10px;
-    font-size: 0.65rem;
+    padding: 7px 12px;
+    font-size: 0.7rem;
+    min-width: 90px;
   }
 }
 
-/* 📱 EXTRA SMALL MOBILE (max-width: 360px) */
-@media (max-width: 360px) {
+/* 📱 EXTRA SMALL MOBILE (max-width: 375px) */
+@media (max-width: 375px) {
   .main-header {
-    padding: 5px 6px;
+    padding: 8px;
   }
 
   .logo {
-    font-size: 0.75rem;
-    margin-bottom: 5px;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
   }
 
   .main-nav {
-    gap: 3px;
+    gap: 5px;
+  }
+
+  .main-nav a {
+    font-size: 0.65rem;
+    padding: 6px 7px;
+    min-height: 30px;
+  }
+
+  .nav-btn {
+    padding: 6px 10px;
+    font-size: 0.65rem;
+    min-width: 80px;
+  }
+}
+
+/* 📱 VERY SMALL SCREENS (max-width: 360px) */
+@media (max-width: 360px) {
+  .logo {
+    font-size: 0.8rem;
   }
 
   .main-nav a {
     font-size: 0.6rem;
-    padding: 4px 5px;
+    padding: 5px 6px;
   }
 
   .nav-btn {
-    padding: 6px 8px;
     font-size: 0.6rem;
+    padding: 5px 8px;
   }
 }
 
 /* 🎯 TOUCH OPTIMIZATION FOR MOBILE */
 @media (hover: none) and (pointer: coarse) {
   .main-nav a {
-    min-height: 36px;
+    min-height: 38px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
   .nav-btn {
-    min-height: 36px;
+    min-height: 38px;
   }
 }
 
-/* 🌐 LANDSCAPE MOBILE - HORIZONTAL LAYOUT */
+/* 🌐 LANDSCAPE MOBILE - OPTIMIZED */
 @media (max-width: 768px) and (orientation: landscape) {
   .main-header {
-    padding: 5px 10px;
+    padding: 6px 12px;
   }
 
   .logo {
-    font-size: 0.75rem;
-    margin-bottom: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
   }
 
   .main-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: center;
+    gap: 8px;
   }
 
   .main-nav a {
-    font-size: 0.65rem;
-    padding: 5px 8px;
-    width: auto;
+    font-size: 0.7rem;
+    padding: 6px 10px;
   }
 
   .nav-actions {
-    flex-direction: row;
-    margin-top: 5px;
+    margin-top: 6px;
   }
 
   .nav-btn {
-    padding: 5px 10px;
-    font-size: 0.65rem;
-    width: auto;
+    padding: 6px 12px;
+    font-size: 0.7rem;
   }
 }
 
-/* 💡 VISIBILITY FIX */
+/* 💡 VISIBILITY & PERFORMANCE FIX */
 @media (max-width: 768px) {
   .main-nav {
     opacity: 1 !important;
