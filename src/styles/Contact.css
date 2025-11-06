@@ -21,7 +21,7 @@
   width: 100vw;
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(135deg, #1e1e1e, #242424);
+  background: linear-gradient(135deg, #000000, #000000);
   position: relative;
   overflow: hidden;
 }
