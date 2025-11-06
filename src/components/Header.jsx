@@ -23,7 +23,11 @@ export default function Header() {
 
         {/* 🪄 CTA BUTTONS (Optional — like Kzero) */}
         <div className="nav-actions">
-          <button className="login-btn">LOGIN</button>
+          {/* === THIS IS THE CHANGED LINE === */}
+          <Link to="/login" className="login-btn">
+            LOGIN
+          </Link>
+          {/* =============================== */}
           <button className="cta-btn">GET STARTED FREE</button>
         </div>
       </div>

@@ -2,11 +2,8 @@
 .contact-page {
   background-color: #0f0f0f;
   color: #fff;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+  font-family: "IBM Plex Mono", monospace;
+  overflow-x: hidden;
 }
 
 .container {
@@ -19,28 +16,23 @@
 /* 📞 HERO */
 .contact-hero {
   width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #000000, #000000);
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 69, 0, 0.1), transparent);
-  pointer-events: none;
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  gap: 2rem;
 }
 
 .contact-hero h1 {
+  font-family: "Space Mono", monospace;
   font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -48,16 +40,16 @@
 
 .contact-hero p {
   max-width: 800px;
-  margin: 0 auto 30px;
-  font-size: 1.2rem;
-  opacity: 0.9;
+  margin: 0 auto;
+  opacity: 0.85;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
 /* 🔥 SUPPORT NUMBER HIGHLIGHT */
 .support-number-highlight {
-  background: rgba(255, 69, 0, 0.1);
-  border: 2px solid rgba(255, 138, 0, 0.3);
+  background: rgba(255, 79, 44, 0.1);
+  border: 2px solid rgba(255, 136, 71, 0.3);
   border-radius: 12px;
   padding: 30px;
   max-width: 500px;
@@ -66,13 +58,14 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  backdrop-filter: blur(10px);
 }
 
 .support-label {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #ff8a00;
+  color: #ff4f2c;
   font-weight: 600;
 }
 
@@ -89,12 +82,15 @@
   align-items: center;
   gap: 10px;
   padding: 15px 35px;
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
@@ -103,7 +99,8 @@
 
 .call-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 79, 44, 0.4);
+  background: linear-gradient(90deg, #ff683e, #ffa05e);
 }
 
 .call-icon {
@@ -113,14 +110,15 @@
 /* 📩 DETAILS */
 .contact-details {
   text-align: center;
-  padding: 80px 20px;
+  padding: 6rem 0;
   width: 100%;
 }
 
 .contact-details h2 {
-  margin-bottom: 50px;
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  font-family: "Space Mono", monospace;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -129,93 +127,84 @@
 .contact-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .contact-info-card {
-  background: #1a1a1a;
-  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
   border-radius: 12px;
-  transition: 0.3s ease;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-info-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.contact-info-card:hover::before {
-  transform: scaleX(1);
 }
 
 .contact-info-card:hover {
-  background: #222;
   transform: translateY(-8px);
-  border-color: rgba(255, 138, 0, 0.2);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 79, 44, 0.4);
+  box-shadow: 0 0 20px rgba(255, 79, 44, 0.15);
 }
 
 .contact-icon {
   font-size: 3.5rem;
-  color: #ff8a00;
+  color: #ff8947;
   margin-bottom: 20px;
 }
 
 .contact-info-card h3 {
+  font-family: "Space Mono", monospace;
   margin-bottom: 12px;
   font-size: 1.3rem;
   color: #fff;
 }
 
 .contact-info-card p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   opacity: 0.8;
   margin: 0;
   line-height: 1.6;
 }
 
 .contact-info-card a {
-  color: #38bdf8;
+  color: #ff8947;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact-info-card a:hover {
-  color: #ff8a00;
+  color: #ffa05e;
 }
 
 /* ⏰ BUSINESS HOURS */
 .business-hours {
-  background: #1a1a1a;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 30px;
   margin-top: 40px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid rgba(255, 138, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.business-hours:hover {
+  border-color: rgba(255, 79, 44, 0.3);
+  box-shadow: 0 0 20px rgba(255, 79, 44, 0.1);
 }
 
 .business-hours h3 {
+  font-family: "Space Mono", monospace;
   font-size: 1.5rem;
   margin-bottom: 20px;
   text-align: center;
-  color: #ff8a00;
+  color: #ff8947;
 }
 
 .hours-grid {
@@ -229,6 +218,12 @@
   padding: 10px 15px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease;
+}
+
+.hours-row:hover {
+  background: rgba(255, 79, 44, 0.05);
 }
 
 .day {
@@ -243,27 +238,16 @@
 /* 📝 FORM */
 .contact-form-section {
   text-align: center;
-  padding: 80px 20px;
+  padding: 6rem 0;
   width: 100%;
-  background: #1e1e1e;
-  position: relative;
-}
-
-.contact-form-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(255, 69, 0, 0.05), transparent);
-  pointer-events: none;
+  background: linear-gradient(180deg, #0f0f0f 0%, #141414 100%);
 }
 
 .contact-form-section h2 {
+  font-family: "Space Mono", monospace;
   margin-bottom: 15px;
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  font-size: 2rem;
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -272,7 +256,8 @@
 .contact-form-section p {
   margin-bottom: 40px;
   opacity: 0.8;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .contact-form {
@@ -293,21 +278,23 @@
 .contact-form textarea,
 .contact-form select {
   padding: 16px;
-  background: #0f0f0f;
-  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #fff;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-family: "IBM Plex Mono", monospace;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus,
 .contact-form select:focus {
   outline: none;
-  border-color: #ff8a00;
-  background: #1a1a1a;
-  box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.1);
+  border-color: #ff8947;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(255, 136, 71, 0.1);
 }
 
 .contact-form textarea {
@@ -316,37 +303,40 @@
 }
 
 .contact-form button {
-  padding: 16px 40px;
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  padding: 14px 32px;
+  background: #ff4f2c;
   border: none;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-family: "Space Mono", monospace;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  transition: all 0.3s ease;
 }
 
 .contact-form button:hover {
+  background: #ff683e;
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 79, 44, 0.4);
 }
 
 /* 🗺️ MAP SECTION */
 .map-section {
   width: 100%;
-  padding: 80px 20px;
+  padding: 6rem 0;
   background: #0f0f0f;
 }
 
 .map-section h2 {
+  font-family: "Space Mono", monospace;
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -357,40 +347,53 @@
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
-  border: 2px solid rgba(255, 138, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   height: 450px;
-  background: #1a1a1a;
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.map-container:hover {
+  border-color: rgba(255, 79, 44, 0.3);
+  box-shadow: 0 0 20px rgba(255, 79, 44, 0.1);
 }
 
 .map-placeholder {
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
+  font-family: "Space Mono", monospace;
 }
 
 /* 🎯 CTA */
 .contact-cta {
   text-align: center;
-  padding: 100px 20px;
+  padding: 6rem 1rem;
   width: 100%;
-  background: linear-gradient(135deg, #1a1a1a, #242424);
+  background: #000;
 }
 
 .contact-cta h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: #fff;
+  font-family: "Space Mono", monospace;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ff4f2c, #ff8947);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .contact-cta p {
+  font-size: 1rem;
   opacity: 0.9;
-  margin-bottom: 30px;
-  font-size: 1.2rem;
+  margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .cta-buttons {
@@ -401,49 +404,53 @@
 }
 
 .cta-button {
-  padding: 15px 35px;
+  padding: 14px 32px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
   display: inline-block;
   clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
 }
 
 .cta-primary {
-  background: linear-gradient(90deg, #ff4500, #ff8a00);
+  background: #ff4f2c;
   color: #fff;
 }
 
 .cta-primary:hover {
+  background: #ff683e;
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 79, 44, 0.4);
 }
 
 .cta-secondary {
   background: transparent;
   color: #fff;
-  border: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .cta-secondary:hover {
-  background: #fff;
-  color: #000;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 79, 44, 0.5);
 }
 
-/* 📱 Responsive */
+/* 📱 RESPONSIVE */
 @media (max-width: 768px) {
   .contact-hero {
-    padding: 60px 20px;
+    padding: 80px 20px;
   }
 
   .contact-hero h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
 
   .contact-hero p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .support-number-highlight {
@@ -463,7 +470,7 @@
   .contact-form-section h2,
   .map-section h2,
   .contact-cta h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .contact-info-grid {
@@ -491,7 +498,7 @@
 
 @media (max-width: 480px) {
   .contact-hero h1 {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
   .support-number {
@@ -500,5 +507,9 @@
 
   .contact-icon {
     font-size: 2.5rem;
+  }
+
+  .contact-cta h2 {
+    font-size: 2rem;
   }
 }

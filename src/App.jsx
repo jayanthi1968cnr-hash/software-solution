@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "@studio-freight/lenis"; // 🧭 Smooth scroll engine
 
 // 🧱 Layout Components
@@ -13,14 +13,23 @@ import Services from "./pages/Services";
 import Products from "./pages/Products";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
+import Login from "./pages/LoginPage";
+import Register from "./pages/RegisterPage";
+import UserDashboard from "./pages/UserDashboard"; // ✅ Import UserDashboard
 
 import "./styles/App.css";
 
-/* 🌀 Global Smooth Scroll (Lenis) */
+/* 🌀 Global Smooth Scroll (Lenis) - Only on non-auth pages */
 function SmoothScroll() {
+  const location = useLocation();
+  const isAuthPage = ["/login", "/register", "/dashboard"].includes(location.pathname);
+
   useEffect(() => {
+    // Don't apply smooth scroll on auth pages
+    if (isAuthPage) return;
+
     const lenis = new Lenis({
-      duration: .1,
+      duration: 0.1,
       smooth: true,
       direction: "vertical",
       gestureDirection: "vertical",
@@ -36,7 +45,7 @@ function SmoothScroll() {
     requestAnimationFrame(raf);
 
     return () => lenis.destroy();
-  }, []);
+  }, [isAuthPage]);
 
   return null;
 }
@@ -44,11 +53,22 @@ function SmoothScroll() {
 function App() {
   return (
     <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+  const isAuthPage = ["/login", "/register", "/dashboard"].includes(location.pathname);
+
+  return (
+    <>
       {/* ✨ Lenis Scroll Wrapper */}
       <SmoothScroll />
 
-      {/* 🧭 Global Header */}
-      <Header />
+      {/* 🧭 Conditional Header - Hide on auth pages */}
+      {!isAuthPage && <Header />}
 
       {/* 🌍 Page Content */}
       <main>
@@ -59,12 +79,17 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          
+          {/* Auth Pages - No Header/Footer */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<UserDashboard />} />
         </Routes>
       </main>
 
-      {/* 🦶 Global Footer */}
-      <Footer />
-    </Router>
+      {/* 🦶 Conditional Footer - Hide on auth pages */}
+      {!isAuthPage && <Footer />}
+    </>
   );
 }
 
